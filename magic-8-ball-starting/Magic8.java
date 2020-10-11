@@ -1,3 +1,12 @@
+/* 
+Author: Brandon Lenz
+Date: 10/11/2020
+Description:  CodeAcademy project for learning Java.  This program generates a integer from 1 to 10 and then 
+displays a given (totally serious) fortune for the user based on the input.  It will do this for them 100 times
+Just to make to sure they get their fortune told.
+*/
+
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Magic8 
