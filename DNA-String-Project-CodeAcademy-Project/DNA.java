@@ -40,17 +40,16 @@ public class DNA {
     boolean prefixCheck = false;
     boolean suffixCheck = false;
     boolean sizeCheck = false;
-    System.out.println("Checking " + seq);
-    System.out.println("...");
     if (seq.length()%3 == 0) {
         sizeCheck = true;
     }
 
-    if (seq.subString(0,3).equals("ATG")){
+    if (seq.substring(0,3).equals("ATG")){
         prefixCheck = true;
     }
 
-    if (seq.subString(seq.length()-3,seq.length()).equals("ATG")){
+    String suffix = (seq.substring(seq.length()-3,seq.length()));
+    if (suffix.equals("TGA")){
         suffixCheck = true;
     }
     
@@ -59,6 +58,7 @@ public class DNA {
     } else {
         System.out.println(seq + " is not a protien");
     }
+    System.out.println();
   }
 
 }
