@@ -20,8 +20,12 @@ public class Language {
 
     public static void main(String[] args){
         Language german = new Language("German", 73, "The Apartment", "Yode like");
-        Language mayan1 = new Mayan("Mayan", 67);
+        Language mayan1 = new Mayan("Mayan", 2330000 );
+        Language sino1 = new SinoTibetan("Sino1", 777666);
+        Language sino2Chinese = new SinoTibetan("SinoChinese", 30000000);
         german.getInfo();
         mayan1.getInfo();
+        sino1.getInfo();
+        sino2Chinese.getInfo();
     }   
 }
