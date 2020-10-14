@@ -3,18 +3,22 @@ import java.text.DecimalFormat;
 class TransitCalculator {
 
     // ReadMe found at https://www.codecademy.com/practice/projects/best-fare-calculator
+    
+    // All prices cut in half for handicapped users
     double perRideCost = 2.75;
     double sevenDayPass = 33.00;
     double thirtyDayPass = 127.00;
+    boolean handicapped = false;
 
     int days;
     int rides;
 
     private static DecimalFormat df = new DecimalFormat("0.00");
 
-    TransitCalculator(int numDays, int numRides) {
+    TransitCalculator(int numDays, int numRides, boolean ishandicapped) {
         this.days = numDays;
         this.rides = numRides;
+        this.handicapped = ishandicapped;
     }
 
     public double unlimited7Price(int numDays, int numRides) {
@@ -54,7 +58,7 @@ class TransitCalculator {
     }
 
 
-    public double bestPrice(int numDays, int numRides) {
+    public double bestPrice(int numDays, int numRides, boolean handicapped) {
         double perRide7Day;
         double perRide30Day;
 
@@ -65,6 +69,12 @@ class TransitCalculator {
 
         // Calculate Cost for 30 day pass
         perRide30Day = unlimited30Price(numDays, numRides);
+
+        if (handicapped) {
+            perRide7Day /= 2;
+            perRide30Day /= 2;
+            perRideCost  = 1.35;
+        }
 
         // Check for cheapest
         // Sets variable to true if 30 day option is cheaper than 7 day option
@@ -101,7 +111,7 @@ class TransitCalculator {
     }
 
     public static void main(String[] args) {
-        TransitCalculator springBreak = new TransitCalculator(5, 12);
-        System.out.println("$" + df.format(springBreak.bestPrice(springBreak.days, springBreak.rides)) + " per ride.");
+        TransitCalculator springBreak = new TransitCalculator(5, 12, true);
+        System.out.println("$" + df.format(springBreak.bestPrice(springBreak.days, springBreak.rides, springBreak.handicapped)) + " per ride.");
     }
 }
