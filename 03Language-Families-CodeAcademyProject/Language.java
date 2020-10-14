@@ -12,12 +12,15 @@ public class Language {
         this.wordOrder = order;
     }
 
-    public getInfo(){
-        System.out.println(name + " is spoken by " + numSpeakers + " people mainly in " + regionsSpoken + ".");
-        System.out.println("The language follows the word order: " + wordOrder + ".");
+    public void getInfo(){
+        System.out.println(this.name + " is spoken by " + this.numSpeakers + " people mainly in " + this.regionsSpoken + ".");
+        System.out.println("The language follows the word order: " + this.wordOrder + ".");
     }
 
     public static void main(String[] args){
-
-    }
+        Language german = new Language("German", 73, "The Apartment", "Yode like");
+        Language mayan1 = new Mayan("Mayan", 67, "This is ignored because it was supered", "This also got supered");
+        german.getInfo();
+        mayan1.getInfo();
+    }   
 }
